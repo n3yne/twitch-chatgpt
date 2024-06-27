@@ -91,7 +91,7 @@ bot.onMessage(async (channel, user, message, self) => {
         bot.say(channel, response);
     }
 
-    const command = commandNames.find(cmd => message.toLowerCase().startsWith(cmd));
+    const command = commandNames.find(cmd => message.toLowerCase().includes(cmd));
     if (command) {
         if (elapsedTime < COOLDOWN_DURATION) {
             bot.say(channel, `Cooldown active. Please wait ${COOLDOWN_DURATION - elapsedTime.toFixed(1)} seconds before sending another message.`);
